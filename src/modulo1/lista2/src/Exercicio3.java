@@ -1,63 +1,84 @@
+package modulo1.lista2.src;
+
 import java.util.Scanner;
 
 public class Exercicio3 {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        String nome = "";
-        int contar = 0;
-        int somaAltura = 0;
-        int maximaAltura = 0;
-        String maisVelho = "";
-        int maximaIdade  = 0;
-        String maisPesado = "";
-        float maiorPeso = 0;
-        boolean executar = true;
-        while (executar){
-            System.out.println("Digite o nome do jogador, ou SAIR para fechar o programa :");
-            nome = s.nextLine();
-            switch (nome){
-                case "SAIR" -> {
-                    executar = false;
-                }
-                default -> {
-                    System.out.println("Digite a altura do jogador em centimetros:");
-                    int atualAltura = s.nextInt();
-                    s.nextLine();
-                    if (contar == 0 ||  maximaAltura > maiorPeso ){
-                        maximaAltura = atualAltura;
-                    }
-                    somaAltura += atualAltura;
-                    System.out.println("Digite a idade do jogador:");
-                    int idade = s.nextInt();
-                    s.nextLine();
-                    if (contar == 0 || idade > maximaIdade ){
-                        maximaIdade = idade;
-                        maisVelho = nome;
-                    }
-                    System.out.println("Digite o peso do jogador em quilos:");
-                    float weight = s.nextFloat();
-                    s.nextLine();
-                    if(contar == 0 || weight > maiorPeso){
-                        maiorPeso = weight;
-                        maisPesado = nome;
-                    }
-                    contar++;
-                }
+        String[] nomesJogadores = new String[8];
+        float[] alturasJogadores = new float[8];
+        int[] idadesJogadores = new int[8];
+        float[] pesosJogadores = new float[8];
+
+        Scanner scanner = new Scanner(System.in);
+
+        String nome;
+
+        int index = 0;
+
+        int indexJogadorMaisAlto = 0;
+        float alturaJogadorMaisAlto = 0;
+
+        int indexJogadorMaisVelho = 0;
+        int idadeJogadorMaisVelho = 0;
+
+        int indexJogadorMaisPesado = 0;
+        float pesoJogadorMaisPesado = 0;
+
+        float somaDasAlturas = 0;
+
+        while (true) {
+            System.out.println("\nJOGADOR " + (index + 1));
+            System.out.println("----------------");
+            System.out.print("Digite o nome do Jogador: ");
+            nome = scanner.nextLine();
+
+            if (nome.equalsIgnoreCase("SAIR")) {
+                break;
             }
+
+            nomesJogadores[index] = nome;
+
+            System.out.print("Digite a altura do jogador: ");
+            alturasJogadores[index] = Float.parseFloat(scanner.nextLine());
+
+            System.out.print("Digite a idade do jogador: ");
+            idadesJogadores[index] = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("Digite o peso do jogador: ");
+            pesosJogadores[index] = Float.parseFloat(scanner.nextLine());
+
+            if (index == 0 || alturasJogadores[index] > alturaJogadorMaisAlto) {
+                alturaJogadorMaisAlto = alturasJogadores[index];
+                indexJogadorMaisAlto = index;
+            }
+
+            if (index == 0 || idadesJogadores[index] > idadeJogadorMaisVelho) {
+                idadeJogadorMaisVelho = idadesJogadores[index];
+                indexJogadorMaisVelho = index;
+            }
+
+            if (index == 0 || pesosJogadores[index] > pesoJogadorMaisPesado) {
+                pesoJogadorMaisPesado = pesosJogadores[index];
+                indexJogadorMaisPesado = index;
+            }
+
+            somaDasAlturas += alturasJogadores[index];
+
+            index++;
         }
-        if(contar > 0){
-            System.out.println("Foram cadastrados "+contar+" jogadores");
-            System.out.println("O jogador mais alto tem "+maximaAltura+"cm, e a média de altura é de: "
-                    +(somaAltura/contar)+"cm");
-            System.out.println("O jogador mais velho é "+maisVelho+" com "+maximaIdade+" anos");
-            System.out.println("O jogador mais pesado é "+maisPesado+" com "+maiorPeso+"kg");
-        }else {
-            System.out.println("Ninguem foi adicionado!");
-        }
+
+        int totalDeJogadores = index;
+        String jogadorMaisAlto = nomesJogadores[indexJogadorMaisAlto];
+        String jogadorMaisVelho = nomesJogadores[indexJogadorMaisVelho];
+        String jogadorMaisPesado = nomesJogadores[indexJogadorMaisPesado];
+        float mediaDeAlturas = somaDasAlturas / index;
+
+        System.out.println("Quantidade de jogadores cadastrados: " + totalDeJogadores);
+        System.out.println("Altura do maior jogador: " + jogadorMaisAlto);
+        System.out.println("Jogador mais velho: " + jogadorMaisVelho);
+        System.out.println("Jogador mais pesado: " + jogadorMaisPesado);
+        System.out.println("Média das alturas jogadores: " + String.format("%.2f", mediaDeAlturas));
+
 
     }
 }
-
-
-
-

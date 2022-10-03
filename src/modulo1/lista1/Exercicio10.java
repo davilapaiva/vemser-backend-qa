@@ -39,7 +39,40 @@ public class Exercicio10 {
         if (mediaAproveitamento < 4.0) {
             conceito = "E";
         }
+        switch (conceito){
+            case  "A":
+                System.out.println("\n\nAluno: "+codigoAluno+"\nNota Avaliação 1: "+notaAv1 +
+                        "\nNota Avaliação 2: "+notaAv2+"\nNota Avaliação 3: "+notaAv3+"\nMédia Exercícios: "+
+                        mediaExercicios+"\nMédia de Aproveitamento: "+ mediaAproveitamento+
+                        "\nConceito: A\nSituação: APROVADO.");
+                break;
+            case  "B":
+                System.out.println("\n\nAluno: "+codigoAluno+"\nNota Avaliação 1: "+notaAv1 +
+                        "\nNota Avaliação 2: "+notaAv2+"\nNota Avaliação 3: "+notaAv3+"\nMédia Exercícios: "+
+                        mediaExercicios+"\nMédia de Aproveitamento: "+ mediaAproveitamento+
+                        "\nConceito: B\nSituação: APROVADO.");
+                break;
+            case  "C":
+                System.out.println("\n\nAluno: "+codigoAluno+"\nNota Avaliação 1: "+notaAv1 +
+                        "\nNota Avaliação 2: "+notaAv2+"\nNota Avaliação 3: "+notaAv3+"\nMédia Exercícios: "+
+                        mediaExercicios+"\nMédia de Aproveitamento: "+ mediaAproveitamento+
+                        "\nConceito: C\nSituação: APROVADO.");
+                break;
+            case  "D":
+                System.out.println("\n\nAluno: "+codigoAluno+"\nNota Avaliação 1: "+notaAv1 +
+                        "\nNota Avaliação 2: "+notaAv2+"\nNota Avaliação 3: "+notaAv3+"\nMédia Exercícios: "+
+                        mediaExercicios+"\nMédia de Aproveitamento: "+ mediaAproveitamento+
+                        "\nConceito: D\nSituação: REPROVADO.");
+                break;
+            case  "E":
+                System.out.println("\n\nAluno: "+codigoAluno+"\nNota Avaliação 1: "+notaAv1 +
+                        "\nNota Avaliação 2: "+notaAv2+"\nNota Avaliação 3: "+notaAv3+"\nMédia Exercícios: "+
+                        mediaExercicios+"\nMédia de Aproveitamento: "+ mediaAproveitamento+
+                        "\nConceito: E\nSituação: REPROVADO.");
+                break;
+        }
 
 
     }
-}
+
+    }
