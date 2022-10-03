@@ -1,9 +1,8 @@
-package modulo1.lista1.Exercicio1;
+package modulo1.lista1;
 
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class Main {
+public class Exercicio1 {
     public static void main(String[] args) {
         Scanner leitorUsuario = new Scanner(System.in);
 
