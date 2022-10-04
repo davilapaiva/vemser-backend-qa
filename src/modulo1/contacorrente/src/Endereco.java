@@ -1,4 +1,4 @@
-package modulo1.contacorrente.src;
+
 
 public class Endereco {
     int tipo;
@@ -22,6 +22,8 @@ public class Endereco {
             tipoEndereco = "Comercial";
             System.out.println("Logradouro: " + logradouro + "  " + numero + " " + complemento + " - " + cep + " - "
                     + cidade + ", " + estado + ", " + pais + " ( " + tipoEndereco + " ).");
+
+
         } else {
             System.out.println("Os tipos permitidos é somente RESIDENCIAL(1) ou COMERCIAL(2).");
         }

@@ -1,14 +1,12 @@
-package modulo1.contacorrente.src;
-
 public class ContaCorrente {
 
     Cliente cliente;
-     String numeroConta;
-     int agencia;
-     double saldo;
-     double chequeEspecial;
+    String numeroConta;
+    int agencia;
+    double saldo;
+    double chequeEspecial;
 
-     void imprimirContaCorrente() {
+    void imprimirContaCorrente() {
         double chequeEspecialDisponivel = 0;
 
         if (saldo < 0) {
@@ -18,26 +16,26 @@ public class ContaCorrente {
         }
 
         System.out.println("Conta corrente: ");
-         System.out.println("=".repeat(20));
+        System.out.println("=".repeat(20));
         System.out.println("Número da conta: " + numeroConta + " Agência: " + agencia);
         System.out.println("Saldo: R$" + String.format("%.2f", saldo) + " Cheque Especial: R$" + String.format("%.2f", chequeEspecialDisponivel));
         System.out.println("");
     }
 
-        boolean sacar(double valor) {
+    boolean sacar(double valor) {
         double saldoCache = retornarSaldoComChequeEspecial();
 
         if (saldoCache > valor) {
-            saldo -= valor;
+            saldo = valor;
             return true;
         } else {
             return false;
         }
     }
 
-        boolean depositar(double valor) {
+    boolean depositar(double valor) {
         double saldoAntesDoDeposito = saldo;
-        saldo += valor;
+        saldo = valor;
 
         if (saldo == saldoAntesDoDeposito + valor) {
             return true;
@@ -46,16 +44,16 @@ public class ContaCorrente {
         }
     }
 
-        double retornarSaldoComChequeEspecial() {
+    double retornarSaldoComChequeEspecial() {
         return chequeEspecial + saldo;
     }
 
-         boolean transferir(ContaCorrente contaCorrente, double valor) {
-         double saldoRemetente = retornarSaldoComChequeEspecial();
+    boolean transferir(ContaCorrente contaCorrente, double valor) {
+        double saldoRemetente = retornarSaldoComChequeEspecial();
 
         if (saldoRemetente > valor) {
             contaCorrente.saldo += valor;
-            saldo -= valor;
+            saldo = valor;
 
             return true;
         } else {
